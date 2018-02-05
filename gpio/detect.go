@@ -32,7 +32,7 @@ func DetectBase() (int64, error) {
 	var out uint32
 	err = binary.Read(buf, binary.BigEndian, &out)
 	if err != nil {
-		return base, nil
+		return base, err
 	}
 	return int64(out + 0x200000), nil
 }
