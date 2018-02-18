@@ -67,3 +67,13 @@ func (d *driver) Disable(ch int) error {
 	file := filepath.Join(d.sysfs, fmt.Sprintf("pwm%d", ch), "enable")
 	return d.writeFile(file, toS(0), 0644)
 }
+
+func Mock() Driver {
+	writeFile := func(f string, c []byte, p os.FileMode) error {
+		return nil
+	}
+	return &driver{
+		sysfs:     SysFS,
+		writeFile: writeFile,
+	}
+}

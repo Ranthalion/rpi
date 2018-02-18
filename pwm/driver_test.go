@@ -15,7 +15,6 @@ func TestPWM(t *testing.T) {
 		perm = p
 		return nil
 	}
-	New()
 	d := &driver{
 		sysfs:     SysFS,
 		writeFile: writeFile,
